@@ -20,7 +20,7 @@ steps:
 
       workingDir: 'web/serverless-microservices-web'
 
-      verbose: false
+      verbose: true
 
       customCommand: 'run build'
 
