@@ -15,7 +15,7 @@ steps:
   inputs:
     script: |
       echo  '$(System.DefaultWorkingDirectory)'
-      dir /web/serverless-microservices-web
+      dir web/serverless-microservices-web
 - task: NodeTool@0
   
   inputs:
