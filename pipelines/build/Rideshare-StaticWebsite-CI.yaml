@@ -1,5 +1,8 @@
 resources:
   - repo: self
+queue:
+  name: Hosted Linux Preview
+  demands: npm
 
 steps:
   - task: Npm@1
@@ -20,7 +23,7 @@ steps:
 
       workingDir: 'web/serverless-microservices-web'
 
-      verbose: true
+      verbose: false
 
       customCommand: 'run build'
 
