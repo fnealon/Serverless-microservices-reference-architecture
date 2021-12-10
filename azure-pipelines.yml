@@ -16,13 +16,27 @@ steps:
     script: |
       echo  '$(System.DefaultWorkingDirectory)'
       dir web/serverless-microservices-web
-- task: NodeTool@0
-  
+
+- task: Npm@1
   inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-- script: |
+    command: 'install' # Options: install, publish, custom
     workingDir: 'web/serverless-microservices-web'
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+- task: Npm@1
+  inputs:
+    command: 'custom' # Options: install, publish, custom
+    workingDir: 'web/serverless-microservices-web'
+    customCommand: 'run build'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: 'web/serverless-microservices-web'
+
+    Contents: 'dist/**'
+
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+    CleanTargetFolder: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
