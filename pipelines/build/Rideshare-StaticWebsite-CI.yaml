@@ -22,7 +22,7 @@ steps:
 
       verbose: true
 
-      customCommand: 'npm run build'
+      customCommand: 'run build'
 
   - task: CopyFiles@2
     displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
