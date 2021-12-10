@@ -1,7 +1,7 @@
 resources:
   - repo: self
 queue:
-  name: Linux
+  name: Hosted Ubuntu 1604 pool
   demands: npm
 
 steps:
